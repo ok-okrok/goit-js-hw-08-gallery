@@ -2,6 +2,7 @@
 
 import images from "./gallery-items.js";
 
+
 const refs = {
     gallery: document.querySelector(".js-gallery"),
     image: document.createElement("img"),
@@ -30,6 +31,8 @@ refs.gallery.addEventListener("click", onGalleryClick);
 refs.btn.addEventListener("click", onClickHandlerClose);
 refs.modal.addEventListener("click", closeLightbox);
 
+
+
 function onGalleryClick(elem) {
   elem.preventDefault();
   if (elem.target.nodeName !== 'IMG') return;
@@ -37,9 +40,22 @@ function onGalleryClick(elem) {
     refs.lightbox.classList.add("is-open");
     refs.lightbox__image.src = elem.target.getAttribute("data-source");
     refs.lightbox__image.alt = elem.target.alt;
+    // const a = refs.gallery.querySelectorAll('img');
+    // console.log(a[1]);
   };
   window.addEventListener("keyup", clickKey);
 };
+
+// const b = document.querySelectorAll(".gallery__image");
+// console.log(b);
+
+
+// let x = 0;
+// b.forEach(element => {
+//   x += 1;
+//   element.classList.add(x);
+// });
+
 
 function onClickHandlerClose() {
   refs.lightbox.classList.remove("is-open");
@@ -61,9 +77,10 @@ function clickKey(event) {
   };
 
   if (event.code === "ArrowRight") {
-    newPicture(event);
+    newPicture();
   };
 }
+
 
 // let a = refs.gallery.childElementCount;
 // console.log(a);
